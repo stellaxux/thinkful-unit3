@@ -9,6 +9,7 @@ import datetime
 import requests
 import sqlite3 as lite
 import pandas as pd
+import matplotlib.pyplot as plt
 import collections
 
 APIKEY = 'b3d9e1886a328223d5afd670704cdf2e/'
@@ -25,9 +26,8 @@ cities = { "Atlanta": '33.762909,-84.422675',
 con = lite.connect('weather.db')
 cur = con.cursor()
 
-with con:
-    cur.execute('CREATE TABLE temperature_max (date INT PRIMARY KEY, '+ ' FLOAT, '.join(cities.keys()) + ' FLOAT)')
-
+#with con:
+#    cur.execute('CREATE TABLE temperature_max (date INT PRIMARY KEY, '+ ' FLOAT, '.join(cities.keys()) + ' FLOAT)')
 # API call
 # print ('https://api.forecast.io/forecast/' + APIKEY + cities["Boston"] + ',' + str(start_date))
 for i in range(30):
